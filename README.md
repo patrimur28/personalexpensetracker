@@ -1,16 +1,15 @@
-# Personal Expense Tracker
+# Studyboard
 
-Ledger is a responsive personal expense tracker built with HTML, CSS, and vanilla JavaScript.
+Studyboard is a responsive Student Study Planner & Grade Dashboard built with HTML, CSS, and vanilla JavaScript.
 
 ## Features
 
-- Add, edit, and delete expenses.
-- View total spending, expense count, and average expense.
-- Review category totals and a Chart.js spending visualization.
-- Filter by expense type or category.
-- Sort by date or amount.
-- Search transactions.
-- Persist data in browser localStorage.
+- Add, edit, and delete courses.
+- Add, edit, and delete assignments.
+- Change assignment priority and status directly in the dashboard.
+- See semester progress, upcoming work, and course assignment counts.
+- Search and filter assignments by course or status.
+- Persist courses and assignments in browser localStorage.
 
 ## Run locally
 

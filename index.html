@@ -3,38 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f7f2">
-  <title>Ledger | Personal finance, made clear</title>
+  <meta name="theme-color" content="#f3f0e9">
+  <title>Studyboard | Student study planner</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar" aria-label="Primary navigation">
-      <a class="brand" href="#overview" aria-label="Ledger home"><span class="brand-mark">L</span><span>ledger</span></a>
-      <nav class="nav-list">
-        <a class="nav-item active" href="#overview"><span class="nav-icon">+</span>Overview</a>
-        <a class="nav-item" href="#transactions"><span class="nav-icon">=</span>Transactions</a>
-        <a class="nav-item" href="#budgets"><span class="nav-icon">%</span>Budgets</a>
-        <a class="nav-item" href="#insights"><span class="nav-icon">/</span>Insights</a>
-      </nav>
-      <div class="sidebar-bottom"><p class="sidebar-label">Your workspace</p><button class="workspace-button" type="button"><span class="avatar">JM</span><span><strong>Jamie Miller</strong><small>Personal account</small></span><span class="chevron">v</span></button><p class="sidebar-note">Keeping your money<br>in good company.</p></div>
-    </aside>
-    <main class="main-content" id="overview">
-      <header class="topbar"><button class="mobile-menu" type="button" aria-label="Open navigation">=</button><div><p class="eyebrow">Wednesday, September 02, 2026</p><h1>Good morning, Jamie<span class="period">.</span></h1></div><div class="topbar-actions"><button class="icon-button" type="button" aria-label="Notifications">o<span class="notification-dot"></span></button><button class="avatar avatar-large" type="button" aria-label="Open profile">JM</button></div></header>
-      <section class="summary-row" aria-label="Financial summary">
-        <article class="balance-card"><div class="card-heading"><span>Available balance</span><button class="more-button" type="button" aria-label="More balance options">...</button></div><p class="balance-value" id="balance-value">$4,860.24</p><div class="balance-meta"><span class="trend-up">+8.4%</span><span>vs last month</span></div><div class="balance-sparkline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
-        <article class="metric-card"><div class="card-heading"><span>Income</span><span class="metric-icon income-icon">+</span></div><p class="metric-value" id="income-value">$5,240.00</p><span class="metric-caption">This month <b class="positive">+12.6%</b></span></article>
-        <article class="metric-card"><div class="card-heading"><span>Expenses</span><span class="metric-icon expense-icon">-</span></div><p class="metric-value" id="expense-value">$1,874.32</p><span class="metric-caption">This month <b class="negative">+4.2%</b></span></article>
-        <article class="metric-card"><div class="card-heading"><span>Savings rate</span><span class="metric-icon savings-icon">$</span></div><p class="metric-value">64.2%</p><span class="metric-caption">Your target <b class="positive">60%</b></span></article>
-      </section>
-      <section class="spending-summary" aria-label="Spending summary"><div><span>Total spending</span><strong id="summary-total">$0.00</strong></div><div><span>Number of expenses</span><strong id="summary-count">0</strong></div><div><span>Average expense</span><strong id="summary-average">$0.00</strong></div></section>
-      <section class="content-grid"><article class="panel spending-panel" id="insights"><div class="panel-heading"><div><p class="section-kicker">Your activity</p><h2>Spending overview</h2></div><select id="month-filter" aria-label="Choose month"><option>September 2026</option><option>August 2026</option></select></div><div class="chart-legend"><span><i class="legend-dot purple"></i>Category spending</span><strong id="chart-total">$1,874.32 <small>total spent</small></strong></div><div class="chart" id="spending-chart" aria-label="Bar chart showing spending by category"></div></article><article class="panel category-panel" id="budgets"><div class="panel-heading"><div><p class="section-kicker">Where it goes</p><h2>Top categories</h2></div><button class="text-button" type="button">View all <span>-></span></button></div><div class="category-list" id="category-list"></div></article></section>
-      <section class="panel transactions-panel" id="transactions"><div class="panel-heading transactions-heading"><div><p class="section-kicker">Recent activity</p><h2>Transactions</h2></div><div class="transaction-tools"><label class="search-box"><span>/</span><input id="search-input" type="search" placeholder="Search transactions" aria-label="Search transactions"></label><button class="primary-button" id="add-expense-button" type="button"><span>+</span> Add expense</button></div></div><div class="filter-row"><button class="filter-chip active" type="button" data-filter="all">All transactions</button><button class="filter-chip" type="button" data-filter="expense">Expenses</button><button class="filter-chip" type="button" data-filter="income">Income</button><select class="filter-select" id="category-filter" aria-label="Filter by category"><option value="all">All categories</option></select><select class="filter-select" id="sort-filter" aria-label="Sort transactions"><option value="date-desc">Newest first</option><option value="date-asc">Oldest first</option><option value="amount-desc">Amount: high to low</option><option value="amount-asc">Amount: low to high</option></select><span class="transaction-count" id="transaction-count"></span></div><div class="table-wrap"><table><thead><tr><th>Description</th><th>Category</th><th>Date</th><th>Amount</th><th>Actions</th></tr></thead><tbody id="transaction-list"></tbody></table><p class="empty-state" id="empty-state" hidden>No transactions match your search.</p></div></section>
-      <footer class="footer"><span>Ledger is private by design.</span><span>Updated just now <i class="status-dot"></i></span></footer>
-    </main>
-  </div>
-  <dialog class="expense-dialog" id="expense-dialog"><form method="dialog" id="expense-form"><div class="dialog-header"><div><p class="section-kicker">New entry</p><h2 id="dialog-title">Add expense</h2></div><button class="close-button" value="cancel" aria-label="Close dialog">x</button></div><label>Description<input name="description" placeholder="e.g. Weekly groceries" required></label><div class="form-grid"><label>Amount<input name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required></label><label>Category<select name="category"><option>Food & Dining</option><option>Transport</option><option>Shopping</option><option>Home</option><option>Health</option><option>Other</option></select></label></div><label>Date<input name="date" type="date" value="2026-09-02" required></label><button class="primary-button dialog-submit" value="default" type="submit">Save expense</button></form></dialog>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="script.js" type="module"></script>
+  <header class="site-header">
+    <a class="brand" href="#dashboard" aria-label="Studyboard dashboard"><span class="brand-mark">S</span><span>studyboard</span></a>
+    <div class="header-date"><span class="status-dot"></span><span id="today-label">Thursday, September 04, 2026</span></div>
+    <button class="avatar" type="button" aria-label="Open student profile">AM</button>
+  </header>
+  <main id="dashboard" class="page-shell">
+    <section class="intro-row">
+      <div><p class="eyebrow">Fall semester / 2026</p><h1>Make room for<br><em>good work.</em></h1><p class="intro-copy">A calm place to see what is next, keep your courses moving, and finish the term with intention.</p></div>
+      <div class="progress-card"><div class="progress-card-top"><span>Semester progress</span><strong id="progress-value">0%</strong></div><div class="progress-track"><i id="progress-bar"></i></div><p><span id="completed-count">0</span> of <span id="assignment-count">0</span> assignments complete</p></div>
+    </section>
+    <section class="stats-row" aria-label="Study overview">
+      <article class="stat-card accent"><span class="stat-label">Due this week</span><strong id="due-count">0</strong><span class="stat-note">Keep the momentum</span></article>
+      <article class="stat-card"><span class="stat-label">In progress</span><strong id="progress-count">0</strong><span class="stat-note">Assignments on your desk</span></article>
+      <article class="stat-card"><span class="stat-label">Courses</span><strong id="course-count">0</strong><span class="stat-note">Your current semester</span></article>
+      <article class="quote-card"><span class="quote-mark">“</span><p>Small steps become finished work.</p><span>YOUR STUDYBOARD</span></article>
+    </section>
+    <section class="workspace-grid">
+      <article class="panel courses-panel"><div class="panel-heading"><div><p class="section-kicker">Your semester</p><h2>Courses</h2></div><button class="button primary" id="add-course-button" type="button"><span>+</span> Add course</button></div><div class="course-list" id="course-list"></div><div class="empty-state" id="course-empty" hidden><strong>Start with a course</strong><span>Add the classes you are studying this term.</span></div></article>
+      <article class="panel next-panel"><div class="panel-heading"><div><p class="section-kicker">The near horizon</p><h2>Coming up</h2></div><button class="icon-button" id="focus-button" type="button" aria-label="Show all upcoming assignments">...</button></div><div id="upcoming-list" class="upcoming-list"></div><div class="empty-state" id="upcoming-empty" hidden><strong>Nothing due yet</strong><span>Your next assignment will appear here.</span></div></article>
+    </section>
+    <section id="assignments-panel" class="panel assignments-panel"><div class="panel-heading assignments-heading"><div><p class="section-kicker">The full picture</p><h2>Assignments</h2></div><div class="assignment-tools"><label class="search-box"><span>/</span><input id="search-input" type="search" placeholder="Search assignments" aria-label="Search assignments"></label><select id="course-filter" aria-label="Filter by course"><option value="all">All courses</option></select><select id="status-filter" aria-label="Filter by status"><option value="all">All statuses</option><option value="todo">To do</option><option value="progress">In progress</option><option value="done">Complete</option></select><button class="button primary" id="add-assignment-button" type="button"><span>+</span> Add assignment</button></div></div><div class="table-wrap"><table><thead><tr><th>Assignment</th><th>Course</th><th>Due date</th><th>Priority</th><th>Status</th><th></th></tr></thead><tbody id="assignment-list"></tbody></table><div class="empty-state" id="assignment-empty" hidden><strong>No assignments found</strong><span>Try changing your filters or add a new assignment.</span></div></div></section>
+  </main>
+  <dialog id="course-dialog"><form method="dialog" id="course-form"><div class="dialog-heading"><div><p class="section-kicker">Course details</p><h2 id="course-dialog-title">Add course</h2></div><button class="close-button" value="cancel" aria-label="Close dialog">x</button></div><label>Course name<input name="name" placeholder="e.g. Organic Chemistry" required></label><label>Course code<input name="code" placeholder="e.g. CHEM 201" required></label><button class="button primary dialog-submit" value="default" type="submit">Save course</button></form></dialog>
+  <dialog id="assignment-dialog"><form method="dialog" id="assignment-form"><div class="dialog-heading"><div><p class="section-kicker">Work item</p><h2 id="assignment-dialog-title">Add assignment</h2></div><button class="close-button" value="cancel" aria-label="Close dialog">x</button></div><label>Assignment name<input name="title" placeholder="e.g. Problem set 04" required></label><div class="form-grid"><label>Course<select name="courseId" id="assignment-course" required></select></label><label>Due date<input name="dueDate" type="date" required></label></div><div class="form-grid"><label>Priority<select name="priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label><label>Status<select name="status"><option value="todo">To do</option><option value="progress">In progress</option><option value="done">Complete</option></select></label></div><button class="button primary dialog-submit" value="default" type="submit">Save assignment</button></form></dialog>
+  <script src="script.js"></script>
 </body>
 </html>
